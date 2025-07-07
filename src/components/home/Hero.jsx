@@ -10,7 +10,7 @@ const Hero = () => {
   const mediaSrc = 'https://videos.pexels.com/video-files/30290435/12984761_1920_1080_25fps.mp4';
   const bgImageSrc = 'https://images.pexels.com/photos/5070054/pexels-photo-5070054.jpeg';
   const title = 'BRAND OF TALENT';
-  const subtitle = 'Conectamos el talento perfecto';
+  const subtitle = 'El talento que tu marca necesita';
 
   useEffect(() => {
     setScrollProgress(0);

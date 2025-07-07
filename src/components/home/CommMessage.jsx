@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaHandshake, FaMoneyBillWave, FaUnlock } from 'react-icons/fa';
 
 const CommMessage = ({ children }) => {
   return (
     <motion.section
-      className='w-full bg-[#1D1D1D] backdrop-blur-sm py-16 flex items-center justify-center min-h-screen'
+      className='w-full bg-[#1D1D1D] backdrop-blur-sm py-10 flex items-center justify-center min-h-screen'
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: 'easeInOut' }}
@@ -14,62 +15,90 @@ const CommMessage = ({ children }) => {
       </div>
       <div className='max-w-6xl mx-auto px-8'>
         {children || (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className='flex flex-col items-center justify-center text-center z-10'
-          >
+                      <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className='flex flex-col items-center justify-center text-center z-10'
+            >
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
               className='text-3xl md:text-4xl font-bold mb-6 text-white'
             >
-              Conectamos el talento perfecto con tu marca
+              Más de 27 años conectando marcas con talento latinoamericano con propósito y emoción
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className='text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed'
+              viewport={{ once: true }}
+              className='text-lg md:text-xl  text-white/90 max-w-3xl mx-auto leading-relaxed'
             >
-              En Brand of Talent, somos especialistas en identificar y conectar el talento ideal con las marcas que buscan sobresalir. Nuestro enfoque personalizado garantiza que cada colaboración sea auténtica y efectiva.
+              En Brand of Talent, somos especialistas en identificar y conectar el talento ideal con las marcas que buscan sobresalir.
             </motion.p>
+
+
+            {/* Sección con el mensaje del usuario */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-12'
+              viewport={{ once: true }}
+              className='mt-12 w-full'
             >
+              
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className='bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center'
+                transition={{ duration: 0.8, delay: 0.8 }}
+                viewport={{ once: true }}
+                className='grid grid-cols-1 md:grid-cols-3 gap-0 mt-8 overflow-hidden'
               >
-                <h3 className='text-xl font-semibold mb-3 text-white'>Talento Auténtico</h3>
-                <p className='text-white/80 leading-relaxed'>Conectamos con creadores que realmente representan los valores de tu marca</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
-                className='bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center'
-              >
-                <h3 className='text-xl font-semibold mb-3 text-white'>Resultados Medibles</h3>
-                <p className='text-white/80 leading-relaxed'>Campañas diseñadas para generar impacto real y engagement auténtico</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                className='bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center'
-              >
-                <h3 className='text-xl font-semibold mb-3 text-white'>Experiencia Integral</h3>
-                <p className='text-white/80 leading-relaxed'>Desde la estrategia hasta la ejecución, te acompañamos en todo el proceso</p>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  viewport={{ once: true }}
+                  className='p-6 text-center border-r border-white/20 last:border-r-0'
+                >
+                  <FaHandshake className='text-4xl text-white mb-4 mx-auto' />
+                  <h4 className='text-xl font-semibold mb-3 text-white'>Sin Intermediarios</h4>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.0 }}
+                  viewport={{ once: true }}
+                  className='p-6 text-center border-r border-white/20 last:border-r-0'
+                >
+                  <FaMoneyBillWave className='text-4xl text-white mb-4 mx-auto' />
+                  <h4 className='text-xl font-semibold mb-3 text-white'>Sin Comisiones</h4>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.2 }}
+                  viewport={{ once: true }}
+                  className='p-6 text-center border-r border-white/20 last:border-r-0'
+                >
+                  <FaUnlock className='text-4xl text-white mb-4 mx-auto' />
+                  <h4 className='text-xl font-semibold mb-3 text-white'>Sin Compromisos</h4>
+                </motion.div>
               </motion.div>
             </motion.div>
+            <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.4 }}
+                viewport={{ once: true }}
+                className='text-2xl md:text-3xl font-bold mt-12 text-white'
+              >
+                Directo al corazón de tu audiencia
+              </motion.h3>
           </motion.div>
         )}
       </div>

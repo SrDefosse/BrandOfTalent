@@ -11,7 +11,7 @@ const QuoteCTA = () => {
   }
 
   return (
-    <section className="quote-cta py-20 relative overflow-hidden">
+    <section className="quote-cta flex flex-col justify-center items-center relative overflow-hidden min-h-[80vh]">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-stone-700 rounded-full blur-3xl"></div>
@@ -22,6 +22,7 @@ const QuoteCTA = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight" style={{ color: '#E8E0DC' }}>
@@ -50,6 +51,7 @@ const QuoteCTA = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
             className="flex flex-col sm:flex-row justify-center items-center gap-8 text-gray-400"
           >
             <div className="flex items-center gap-2">
