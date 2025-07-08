@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp, FaEnvelope } from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -84,9 +84,30 @@ const Footer = () => {
           
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white mb-4">Contacto</h4>
-            <div className="space-y-2">
-              <p className="text-gray-300">WhatsApp: +XX XXX XXX XXXX</p>
-              <p className="text-gray-300">Email: info@brandoftalent.com</p>
+            <div className="space-y-3">
+              <a 
+                href="https://wa.me/5255322586211" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
+              >
+                <FaWhatsapp className="text-green-500 text-lg group-hover:scale-110 transition-transform duration-300" />
+                <span>WhatsApp: +52 55 3225 8621</span>
+              </a>
+              <a 
+                href="mailto:ale8aactriz@gmail.com" 
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
+              >
+                <FaEnvelope className="text-blue-400 text-lg group-hover:scale-110 transition-transform duration-300" />
+                <span>ale8aactriz@gmail.com</span>
+              </a>
+              <a 
+                href="mailto:olga.perez@hof.mx" 
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
+              >
+                <FaEnvelope className="text-blue-400 text-lg group-hover:scale-110 transition-transform duration-300" />
+                <span>olga.perez@hof.mx</span>
+              </a>
             </div>
           </div>
           
@@ -102,7 +123,7 @@ const Footer = () => {
                 <FaFacebookF className="text-white text-xl" />
               </a>
               <a 
-                href="#" 
+                href="https://www.instagram.com/aleochoapinguina/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"

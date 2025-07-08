@@ -45,7 +45,7 @@ const Hero = () => {
 
     const handleTouchMove = (e) => {
       const touchCurrentY = e.touches[0].clientY;
-      const touchDelta = (touchStartY - touchCurrentY) * 0.0008; // Sensibilidad
+      const touchDelta = (touchStartY - touchCurrentY) * 0.0010; // Sensibilidad
       
       if (!mediaFullyExpanded) {
         e.preventDefault();
