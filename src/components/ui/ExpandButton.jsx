@@ -4,12 +4,16 @@ import { useState, useRef } from "react"
 export default function Component() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <ExpandButton />
+      {/* Aquí pasas el texto y la URL que quieras */}
+      <ExpandButton label="Contáctanos" url="https://tudominio.com/contacto" />
     </div>
   )
 }
 
-export function ExpandButton() {
+export function ExpandButton({
+  label = "ExpandButton",   // texto por defecto
+  url = "#",               // URL por defecto
+}) {
   const [isHovered, setIsHovered] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const buttonRef = useRef(null)
@@ -20,14 +24,12 @@ export function ExpandButton() {
     const rect = buttonRef.current.getBoundingClientRect()
     const centerX = rect.left + rect.width / 2
     const centerY = rect.top + rect.height / 2
-
     const deltaX = e.clientX - centerX
     const deltaY = e.clientY - centerY
-    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY)
+    const distance = Math.hypot(deltaX, deltaY)
 
-    // Efecto magnético: si el cursor está cerca (menos de 100px), mover el botón hacia él
     if (distance < 100) {
-      const magnetStrength = Math.max(0, (100 - distance) / 100)
+      const magnetStrength = (100 - distance) / 100
       setMousePosition({
         x: deltaX * magnetStrength * 0.3,
         y: deltaY * magnetStrength * 0.3,
@@ -43,12 +45,17 @@ export function ExpandButton() {
   }
 
   return (
-    <div className="relative" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+    <div
+      className="relative"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
       <motion.button
         ref={buttonRef}
         className="relative px-8 py-4 text-white font-semibold rounded-full bg-gradient-to-br from-black via-neutral-900 to-black shadow-2xl cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={() => window.location.href = url}    // redirige al hacer click
         animate={{
           scale: isHovered ? 1.1 : 1,
           x: mousePosition.x,
@@ -62,7 +69,7 @@ export function ExpandButton() {
           mass: 0.8,
         }}
       >
-        <span className="relative z-10">ExpandButton</span>
+        <span className="relative z-10">{label}</span>
       </motion.button>
     </div>
   )

@@ -63,7 +63,7 @@ const CommMessage = ({ children }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
                   viewport={{ once: true }}
-                  className='p-6 text-center border-r border-l border-white/20 last:border-r-0'
+                  className='p-6 text-center border-r border-l border-white/20'
                 >
                   <FaHandshake className='text-4xl text-white mb-4 mx-auto' />
                   <h4 className='text-xl font-semibold mb-3 text-white'>Sin Intermediarios</h4>
@@ -73,7 +73,7 @@ const CommMessage = ({ children }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.0 }}
                   viewport={{ once: true }}
-                  className='p-6 text-center border-r border-white/20'
+                  className='p-6 text-center border-r border-l border-white/20'
                 >
                   <FaMoneyBillWave className='text-4xl text-white mb-4 mx-auto' />
                   <h4 className='text-xl font-semibold mb-3 text-white'>Sin Comisiones</h4>
@@ -83,7 +83,7 @@ const CommMessage = ({ children }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.2 }}
                   viewport={{ once: true }}
-                  className='p-6 text-center border-r border-white/20'
+                  className='p-6 text-center border-r border-l border-white/20'
                 >
                   <FaUnlock className='text-4xl text-white mb-4 mx-auto' />
                   <h4 className='text-xl font-semibold mb-3 text-white'>Sin Compromisos</h4>
@@ -95,7 +95,7 @@ const CommMessage = ({ children }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.4 }}
                 viewport={{ once: true }}
-                className='text-2xl md:text-3xl font-bold mt-12 text-white'
+                className='text-2xl font-bold mt-12 text-white'
               >
                 Directo al corazón de tu audiencia
               </motion.h3>

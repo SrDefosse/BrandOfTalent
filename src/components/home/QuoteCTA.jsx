@@ -14,7 +14,7 @@ const QuoteCTA = () => {
     <section className="quote-cta flex flex-col justify-center items-center relative overflow-hidden min-h-[80vh]">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-stone-700 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gray-700 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
@@ -38,8 +38,14 @@ const QuoteCTA = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mb-8"
+            viewport={{ once: true }}
           >
-            <ExpandButton/>
+            <ExpandButton 
+              label="Solicitar Cotización" 
+              url="/quote" 
+              onClick={handleQuoteClick}
+            />
+
           </motion.div>
 
           {/* Additional Info */}
