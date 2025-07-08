@@ -289,7 +289,7 @@ export function DemoPage() {
 export function MainServices() {
   return (
     <div className="w-full h-screen bg-zinc-900">
-      <div className="text-4xl font-semibold text-center text-white my-14">
+      <div className="text-4xl font-semibold text-center text-white py-6">
       </div>
       <DynamicFrameLayout 
         frames={demoFrames} 
