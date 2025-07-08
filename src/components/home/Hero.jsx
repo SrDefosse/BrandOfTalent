@@ -5,6 +5,8 @@ const Hero = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mediaFullyExpanded, setMediaFullyExpanded] = useState(false);
   const [isMobileState, setIsMobileState] = useState(false);
+  const [touchStartY, setTouchStartY] = useState(0);
+  const [touchEndY, setTouchEndY] = useState(0);
 
   // Fixed values since no props are passed
   const mediaSrc = 'https://videos.pexels.com/video-files/30290435/12984761_1920_1080_25fps.mp4';
@@ -37,20 +39,59 @@ const Hero = () => {
       }
     };
 
+    const handleTouchStart = (e) => {
+      setTouchStartY(e.touches[0].clientY);
+    };
+
+    const handleTouchMove = (e) => {
+      if (!mediaFullyExpanded) {
+        e.preventDefault();
+        const touchCurrentY = e.touches[0].clientY;
+        const touchDelta = (touchStartY - touchCurrentY) * 0.003;
+        const newProgress = Math.min(
+          Math.max(scrollProgress + touchDelta, 0),
+          1
+        );
+        setScrollProgress(newProgress);
+
+        if (newProgress >= 1) {
+          setMediaFullyExpanded(true);
+        }
+      }
+    };
+
+    const handleTouchEnd = (e) => {
+      setTouchEndY(e.changedTouches[0].clientY);
+      
+      // Si está expandido y se hace swipe hacia abajo (touch end > touch start)
+      if (mediaFullyExpanded && touchEndY > touchStartY && window.scrollY <= 5) {
+        setMediaFullyExpanded(false);
+      }
+    };
+
     const handleScroll = () => {
       if (!mediaFullyExpanded) {
         window.scrollTo(0, 0);
       }
     };
 
+    // Desktop events
     window.addEventListener('wheel', handleWheel, { passive: false });
     window.addEventListener('scroll', handleScroll);
+
+    // Mobile events
+    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    window.addEventListener('touchend', handleTouchEnd, { passive: false });
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [scrollProgress, mediaFullyExpanded]);
+  }, [scrollProgress, mediaFullyExpanded, touchStartY, touchEndY]);
 
   useEffect(() => {
     const checkIfMobile = () => {

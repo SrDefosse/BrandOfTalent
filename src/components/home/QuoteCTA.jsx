@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { VideoButton } from '../ui/VideoButton'
+import { ExpandButton } from '../ui/ExpandButton'
 
 const QuoteCTA = () => {
   const navigate = useNavigate()
@@ -39,11 +39,7 @@ const QuoteCTA = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mb-8"
           >
-            <VideoButton
-              label="Obtener Cotización"
-              videoUrl="https://www.w3schools.com/howto/rain.mp4"
-              onClick={handleQuoteClick}
-            />
+            <ExpandButton/>
           </motion.div>
 
           {/* Additional Info */}

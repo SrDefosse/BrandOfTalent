@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const VideoButton = ({ label, videoUrl, onClick }) => {
   return (
     <motion.button
-      className="relative overflow-hidden rounded-2xl px-6 py-3 text-white font-semibold text-lg bg-black group shadow-lg hover:cursor-pointer"
+      className="relative overflow-hidden rounded-full px-6 py-3 text-white font-semibold text-lg bg-black group shadow-lg hover:cursor-pointer"
       whileHover="hover"
       initial="rest"
       animate="rest"
@@ -21,7 +21,7 @@ export const VideoButton = ({ label, videoUrl, onClick }) => {
       />
 
       {/* Black Overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-black/20 z-10 pointer-events-none group-hover:opacity-100 transition-opacity duration-300" />
 
       {/* Button Text */}
       <span className="relative z-20 text-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{label}</span>
