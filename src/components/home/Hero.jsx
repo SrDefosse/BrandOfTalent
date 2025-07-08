@@ -44,10 +44,11 @@ const Hero = () => {
     };
 
     const handleTouchMove = (e) => {
+      const touchCurrentY = e.touches[0].clientY;
+      const touchDelta = (touchStartY - touchCurrentY) * 0.0008; // Reduced sensitivity
+      
       if (!mediaFullyExpanded) {
         e.preventDefault();
-        const touchCurrentY = e.touches[0].clientY;
-        const touchDelta = (touchStartY - touchCurrentY) * 0.003;
         const newProgress = Math.min(
           Math.max(scrollProgress + touchDelta, 0),
           1
@@ -57,16 +58,24 @@ const Hero = () => {
         if (newProgress >= 1) {
           setMediaFullyExpanded(true);
         }
+      } else if (mediaFullyExpanded && touchDelta < 0) {
+        // Allow going back when swiping up while expanded
+        e.preventDefault();
+        const regressProgress = Math.min(Math.max(1 + touchDelta * 2, 0), 1);
+        setScrollProgress(regressProgress);
+        
+        if (regressProgress < 0.95) {
+          setMediaFullyExpanded(false);
+        }
       }
     };
 
     const handleTouchEnd = (e) => {
       setTouchEndY(e.changedTouches[0].clientY);
       
-      // Si está expandido y se hace swipe hacia abajo (touch end > touch start)
-      if (mediaFullyExpanded && touchEndY > touchStartY && window.scrollY <= 5) {
-        setMediaFullyExpanded(false);
-      }
+      // Reset touch positions
+      setTouchStartY(0);
+      setTouchEndY(0);
     };
 
     const handleScroll = () => {
