@@ -1,6 +1,5 @@
 import React from 'react'
-import TalentFilter from '../components/talent/TalentFilter'
-import TalentGrid from '../components/talent/TalentGrid'
+import FilterMasonGallery from '../components/talent/FilterMasonGallery'
 
 const Talent = () => {
   return (
@@ -8,8 +7,10 @@ const Talent = () => {
       <div className="container">
         <h1>Talento</h1>
       </div>
-      <TalentFilter />
-      <TalentGrid />
+      <div className="py-7">
+
+      </div>
+      <FilterMasonGallery />
     </div>
   )
 }

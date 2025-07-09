@@ -176,6 +176,15 @@ export default function HoverBenefits() {
   return (
     <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.4 }}
+          viewport={{ once: true }}
+          className='text-2xl font-bold mb-12 text-center text-white'
+        >
+          Directo al corazón de tu audiencia
+        </motion.h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 justify-items-center">
           {benefits.map((benefit, index) => (
             <DirectionAwareHover 

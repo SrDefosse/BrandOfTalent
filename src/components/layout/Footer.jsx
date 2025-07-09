@@ -92,7 +92,7 @@ const Footer = () => {
                 className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
               >
                 <FaWhatsapp className="text-green-500 text-lg group-hover:scale-110 transition-transform duration-300" />
-                <span>WhatsApp: +52 55 3225 8621</span>
+                <span>+52 55 3225 8621</span>
               </a>
               <a 
                 href="mailto:ale8aactriz@gmail.com" 

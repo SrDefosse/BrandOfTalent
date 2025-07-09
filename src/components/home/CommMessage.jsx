@@ -61,7 +61,7 @@ const CommMessage = ({ children }) => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
                   viewport={{ once: true }}
                   className='p-6 text-center border-r border-l border-white/20'
                 >
@@ -71,7 +71,7 @@ const CommMessage = ({ children }) => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
                   viewport={{ once: true }}
                   className='p-6 text-center border-r border-l border-white/20'
                 >
@@ -81,7 +81,7 @@ const CommMessage = ({ children }) => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.2 }}
+                  transition={{ duration: 0.6, delay: 1 }}
                   viewport={{ once: true }}
                   className='p-6 text-center border-r border-l border-white/20'
                 >
@@ -90,15 +90,6 @@ const CommMessage = ({ children }) => {
                 </motion.div>
               </motion.div>
             </motion.div>
-            <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.4 }}
-                viewport={{ once: true }}
-                className='text-2xl font-bold mt-12 text-white'
-              >
-                Directo al corazón de tu audiencia
-              </motion.h3>
           </motion.div>
         )}
       </div>
